@@ -1,9 +1,8 @@
 package pl.coderslab;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -27,6 +26,20 @@ public class BookController {
   //  @ResponseBody
     public List<Book> getList() {
         return bookService.getBooks();
+    }
+
+    @PostMapping("")
+    public void addBook(@RequestBody Book book){
+        bookService.addBook(book);
+    }
+
+    @GetMapping("/{id}")
+    public Book getBook(@PathVariable Long id){
+        return this.bookService.get(id).orElseThrow(()->{
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "entity not found"
+            );
+        });
     }
 
 
