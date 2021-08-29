@@ -39,4 +39,12 @@ public class MockBookService implements BookService{
                 .filter(item -> item.getId().equals(id))
                 .findFirst();
     }
+
+    @Override
+    public void delete(Long id) {
+        if (get(id).isPresent()){
+            bookList.remove(this.get(id).get());
+        }
+    }
+
 }

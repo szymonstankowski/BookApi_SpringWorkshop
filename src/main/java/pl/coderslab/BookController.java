@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.swing.*;
 import java.util.List;
 
 @RestController
@@ -28,10 +29,7 @@ public class BookController {
         return bookService.getBooks();
     }
 
-    @PostMapping("")
-    public void addBook(@RequestBody Book book){
-        bookService.addBook(book);
-    }
+
 
     @GetMapping("/{id}")
     public Book getBook(@PathVariable Long id){
@@ -41,6 +39,18 @@ public class BookController {
             );
         });
     }
+
+    @PostMapping("")
+    public void addBook(@RequestBody Book book){
+        bookService.addBook(book);
+    }
+    @DeleteMapping("/{id}")
+    public void removeBook(@PathVariable Long id) {
+        bookService.delete(id);
+    }
+
+
+
 
 
 }
