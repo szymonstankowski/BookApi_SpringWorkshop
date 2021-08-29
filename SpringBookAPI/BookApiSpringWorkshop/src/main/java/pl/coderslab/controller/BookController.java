@@ -23,13 +23,13 @@ public BookController(BookService bookService){
 
     // POST localhost:8080/books
     @PostMapping
-    public Book addBook(Book book){
+    public Book addBook(@RequestBody Book book){
     return bookService.addBook(book);
     }
 
     // GET localhost:8080/books/51
-    @GetMapping("/{books:\\d+}")
-    public Book getBookById(Long bookId){
+    @GetMapping("/{bookId:\\d+}")
+    public Book getBookById(@PathVariable Long bookId){
     return bookService.getBookById(bookId);
     }
 

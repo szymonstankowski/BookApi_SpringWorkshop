@@ -10,15 +10,13 @@ DELETE http://localhost:8080/books/3
 
 ###
 
-GET http://localhost:8080/books/3
+GET http://localhost:8080/books/1
 
 ###
-
-POST
-http://localhost:8080/books
-Content-Type: application/json
 # Pusta linia po naglowkach (lub linii sterujacej jak nie ma naglowkow), a przed trescia (body/payload)
 # jest obowiazkowa!!!
+POST http://localhost:8080/books
+Content-Type: application/json
 
 {
   "title" : "Quo Vadis",
