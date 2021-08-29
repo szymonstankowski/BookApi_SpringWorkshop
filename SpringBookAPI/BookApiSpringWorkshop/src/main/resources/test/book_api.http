@@ -1,0 +1,39 @@
+GET http://localhost:8080/books
+
+###
+
+GET http://localhost:8080/books/3
+
+###
+
+DELETE http://localhost:8080/books/3
+
+###
+
+GET http://localhost:8080/books/3
+
+###
+
+POST
+http://localhost:8080/books
+Content-Type: application/json
+# Pusta linia po naglowkach (lub linii sterujacej jak nie ma naglowkow), a przed trescia (body/payload)
+# jest obowiazkowa!!!
+
+{
+  "title" : "Quo Vadis",
+  "isbn" : "0000000",
+  "author" : "Henryk"
+}
+
+###
+PUT http://localhost:8080/books/2
+Content-Type: application/json
+
+{
+"id" : 2,
+"title" : "Dyzma",
+"author" : "Nikodem"
+}
+
+###
